@@ -120,7 +120,7 @@ function sendGameSignal(chatId) {
     const randomMinutes = Math.floor(Math.random() * 6) + 3;
     const signalTime = moment().add(randomMinutes, 'minutes');
 
-    let message = `☄✈𝗢𝗣𝗢𝗥𝗧𝗨𝗡𝗜𝗗𝗔𝗗𝗘\n\n𝙅𝙊𝙂𝙊: ${game["name"]}✈\nENTRADA 𝗗𝗔 𝗩𝗘𝗟𝗔: ${signalTime.format('HH:mm')}⏰\n\n🎯 𝗘𝗡𝗧𝗥𝗘 𝗡𝗢 𝗛𝗢𝗥𝗔𝗥𝗜𝗢 𝗘 𝗦𝗔𝗜𝗔\n\nPROTEÇÃO: ${options.protection}\n\n${options.multiplier}✈\nAté 3 tentativas🫵🏼\n\n`;
+    let message = `☄✈𝗢𝗣𝗢𝗥𝗧𝗨𝗡𝗜𝗗𝗔𝗗𝗘\n\n𝙅𝙊𝙂𝙊: ${game["name"]}✈\nENTRADA 𝗗𝗔 𝗩𝗘𝗟𝗔: ${signalTime.format('HH:mm')}⏰\n\n🎯 𝗘𝗡𝗧𝗥𝗘 𝗡𝗢 𝗛𝗢𝗥𝗔𝗥𝗜𝗢 𝗘 𝗦𝗔𝗜𝗔\n\nPROTEÇÃO: ${options.protection}\n\nSEGUNDA*${options.multiplier}✈\nAté 3 tentativas🫵🏼\n\n`;
 
     links.forEach(link => {
         message += `${link.label} 📲: ${link.url}`;
