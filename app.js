@@ -86,7 +86,7 @@ const groupOptions = {
         protection: "2.00X"
     },
     "120363245086285357@g.us": {
-        multiplier: "*5x 10x*✈",
+        multiplier: "*10x 40x*✈",
         protection: "2.00X"
     }
     };
