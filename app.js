@@ -152,7 +152,7 @@ function sendGreenSignal(chatId) {
 
 client.on("ready", () => {
     console.log("Bot Online!");
-    //startSendingSignals();
+    startSendingSignals();
 });
 
 client.on("qr", qr => {
