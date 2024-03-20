@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Juros</title>
+    <style>
+        /* Estilos base */
+.mySpecial-body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #edf2f7; /* Cor de fundo mais suave */
+    margin: 0;
+    padding: 20px;
+}
+
+.mySpecial-container {
+    max-width: 1100px;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mySpecial-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+
+.mySpecial-col {
+    padding: 15px;
+    flex: 1;
+    min-width: 250px; /* Garantir que em telas pequenas o layout não quebre */
+}
+
+/* Estilos para labels, inputs, selects e botões */
+.mySpecial-label {
+    font-size: 1.1em; /* Tamanho da fonte aumentado */
+    color: #333; /* Cor da fonte escura para contraste */
+    margin-bottom: 10px;
+    display: block;
+}
+
+.mySpecial-input, .mySpecial-select {
+    width: 100%;
+    padding: 20px; /* Aumento do padding para um toque maior */
+    margin-bottom: 25px; /* Aumento da margem */
+    border-radius: 10px; /* Bordas mais arredondadas */
+    border: 2px solid #ced4da; /* Borda mais destacada */
+    font-size: 1em;
+    background-color: #f7fafc; /* Cor de fundo mais suave para os inputs */
+}
+
+.mySpecial-input:focus, .mySpecial-select:focus {
+    border-color: #73BF33; /* Cor de foco mais forte */
+    box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.5); /* Sombra de foco */
+}
+
+/* Estilos para botões */
+.mySpecial-button {
+    background-color: #73BF33; /* Cor de fundo azul forte */
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1em; /* Tamanho da fonte do botão aumentado */
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mySpecial-button:hover {
+    background-color: #434190; /* Cor de fundo mais escura quando passa o mouse */
+}
+
+/* Estilos para caixas de resultado */
+.mySpecial-result-box {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: #f7fafc; /* Cor de fundo mais suave para as caixas */
+    margin-bottom: 20px;
+    border-left: 5px solid #73BF33; /* Borda lateral para destaque */
+}
+
+/* Estilos específicos para valores e taxas */
+#mySpecial-resultValue, #mySpecial-chargeValue, #mySpecial-commissionValue, #mySpecial-finalValueWithCommission, #mySpecial-installmentValue {
+    font-size: 2em; /* Tamanho da fonte maior para os valores */
+    color: #2c5282; /* Cor da fonte mais forte para os valores */
+    font-weight: bold; /* Negrito para destacar os valores */
+    margin-top: 15px;
+}
+
+#mySpecial-rateValue, #mySpecial-competitorRateValue {
+    color: #2b6cb0; /* Cor azul para as taxas */
+    margin-top: 5px;
+}
+.mySpecial-container h1 {
+    text-align: center;
+    color: #73BF33; /* Cor azul para combinar com o botão de calcular */
+    font-size: 2.5em; /* Tamanho maior da fonte */
+    margin-bottom: 0.5em; /* Espaçamento abaixo do título */
+    margin-top: 0.2em; /* Espaçamento acima do título */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave para o texto */
+    font-weight: bold; /* Negrito para dar destaque */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .mySpecial-row {
+        flex-direction: column;
+    }
+
+    .mySpecial-col {
+        flex-basis: 100%;
+    }
+}
+    </style>
+</head>
+<body class="mySpecial-body">
+    <div class="mySpecial-container">
+        <h1>Calculadora Juros</h1>
+        <div class="mySpecial-row">
+            <!-- Input form -->
+            <div class="mySpecial-col mySpecial-form">
+                <label class="mySpecial-label" for="mySpecial-saleValue">Qual é o valor da sua venda?</label>
+                <input class="mySpecial-input" type="number" id="mySpecial-saleValue" value="5000">
+
+                <label class="mySpecial-label" for="mySpecial-installments">Parcelamento:</label>
+                <select class="mySpecial-select" id="mySpecial-installments">
+                    <option value="0">Débito</option>
+                    <option value="1">Crédito À Vista</option>
+                    <!-- As opções adicionais serão inseridas via JavaScript -->
+                </select>
+
+                <label class="mySpecial-label" for="mySpecial-cardBrand">Bandeira:</label>
+                <select class="mySpecial-select" id="mySpecial-cardBrand">
+                    <option value="mastercard">Mastercard</option>
+                    <option value="visa">Visa</option>
+                    <option value="elo">Elo</option>
+                    <option value="amex">Amex</option>
+                    <option value="hipercard">HiperCard</option>
+                    <option value="outros">Outros</option>
+                </select>
+
+                <label class="mySpecial-label" for="mySpecial-passInterest">Repassar juros ao cliente:</label>
+                <input type="checkbox" id="mySpecial-passInterest">
+
+                <label class="mySpecial-label" for="mySpecial-commission">Porcentagem da comissão:</label>
+                <input class="mySpecial-input" type="number" id="mySpecial-commission" placeholder="Insira a porcentagem da comissão">
+
+                <button class="mySpecial-button" onclick="calculate()">Calcular</button>
+            </div>
+
+            <!-- Result display -->
+            <div class="mySpecial-col mySpecial-values">
+                <div class="mySpecial-result-box">
+                  Valor a cobrar para receber o total:
+                <div id="mySpecial-chargeValue">R$0,00</div>
+                </div>
+
+                <div class="mySpecial-result-box">
+                    Com a Pay New você recebe em 1 dia útil
+                    <div id="mySpecial-resultValue">R$0,00</div>
+                    <div id="mySpecial-rateValue">Taxa: 0%</div>
+                </div>
+                
+                <div class="mySpecial-result-box">
+                    Sua comissão será de:
+                    <div id="mySpecial-commissionValue">R$0,00</div>
+                </div>
+
+                <div class="mySpecial-result-box">
+                  Valor a receber com comissão:
+                  <div id="mySpecial-finalValueWithCommission">R$0,00</div>
+              </div>
+
+              <div class="mySpecial-result-box">
+                Valor por parcela:
+                <div id="mySpecial-installmentValue">R$0,00</div>
+              </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const rates = {
+            'mastercard': [1.39, 2.98, 3.88, 4.48, 5.07, 5.67, 6.26, 6.72, 7.30, 7.87, 8.44, 9.02, 9.57, 10.13, 10.68, 11.23, 11.77, 12.31, 12.84],
+            'visa': [1.39, 2.98, 3.88, 4.48, 5.07, 5.67, 6.26, 6.72, 7.30, 7.87, 8.44, 9.02, 9.57, 10.13, 10.68, 11.23, 11.77, 12.31, 12.84],
+            'elo': [1.45, 3.29, 4.08, 4.68, 5.27, 5.87, 6.46, 6.92, 7.50, 8.07, 8.64, 9.22, 9.77, 10.33, 10.88, 11.43, 11.97, 12.51, 13.04],
+            'hipercard': [1.79, 3.29, 4.08, 4.68, 5.27, 5.87, 6.46, 6.92, 7.50, 8.07, 8.64, 9.22, 9.77, 10.33, 10.88, 11.43, 11.97, 12.51, 13.04],
+            'amex': [null, 3.29, 4.08, 4.68, 5.27, 5.87, 6.46, 6.92, 7.50, 8.07, 8.64, 9.22, 9.77, 10.33, 10.88, 11.43, 11.97, 12.51, 13.04],
+            'outros': [1.79, 3.29, 4.08, 4.68, 5.27, 5.87, 6.46, 6.92, 7.50, 8.07, 8.64, 9.22, 9.77, 10.33, 10.88, 11.43, 11.97, 12.51, 13.04]
+        };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const installmentsSelect = document.getElementById("mySpecial-installments");
+            for (let i = 2; i <= 18; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = `${i}x`;
+                installmentsSelect.appendChild(option);
+            }
+        });
+
+        function calculate() {
+    const saleValue = parseFloat(document.getElementById("mySpecial-saleValue").value) || 0;
+    const installments = parseInt(document.getElementById("mySpecial-installments").value);
+    const cardBrand = document.getElementById("mySpecial-cardBrand").value;
+    const commissionRate = parseFloat(document.getElementById("mySpecial-commission").value) || 0;
+
+    const rate = rates[cardBrand][installments] || 0;
+    const commissionValue = saleValue * (commissionRate / 100);
+
+    const grossValueNeeded = saleValue / (1 - rate / 100);
+    const chargeValueIncludingCommission = grossValueNeeded + commissionValue;
+
+    // Calcula o valor por parcela
+    const installmentValue = chargeValueIncludingCommission / installments;
+
+    document.getElementById("mySpecial-chargeValue").innerText = `R$${chargeValueIncludingCommission.toFixed(2)}`;
+    document.getElementById("mySpecial-resultValue").innerText = `R$${saleValue.toFixed(2)}`;
+    document.getElementById("mySpecial-rateValue").innerText = `Taxa: ${rate.toFixed(2)}%`;
+    document.getElementById("mySpecial-commissionValue").innerText = `R$${commissionValue.toFixed(2)}`;
+    document.getElementById("mySpecial-finalValueWithCommission").innerText = `R$${(saleValue + commissionValue).toFixed(2)}`;
+    // Atualiza o valor por parcela no HTML
+    document.getElementById("mySpecial-installmentValue").innerText = `${installments}x R$${installmentValue.toFixed(2)}`;
+}
+
+
+
+</script>
+</body>
+</html>

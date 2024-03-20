@@ -8,7 +8,6 @@ const GROUP_IDS = [
     "120363117902938480@g.us",
     "120363198201376109@g.us",
     "120363167997450688@g.us",
-    "120363242331328544@g.us",
     "120363236495256824@g.us",
     "120363245086285357@g.us"
 ];
@@ -28,10 +27,6 @@ const groupLinks = {
     ],
     "120363198201376109@g.us": [
         { label: "🎮SITE", url: "https://sshortly1.com/x6VaNf\n\n" },
-        { label: "🛩", url: " 🛩💸🔑💥💥💥📲" }
-    ],
-    "120363242331328544@g.us": [
-        { label: "🎮SITE", url: "https://sshortly.net/Ksxl8k\n\n" },
         { label: "🛩", url: " 🛩💸🔑💥💥💥📲" }
     ],
     "120363236495256824@g.us": [
@@ -73,10 +68,6 @@ const groupOptions = {
         multiplier: "10x 40🏅",
         protection: "2.00X"
     },
-    "120363242331328544@g.us": {
-        multiplier: "10x 40x",
-        protection: "2.00X"
-    },
     "120363236495256824@g.us": {
         multiplier: "10x 40x",
         protection: "2.00X"
@@ -90,7 +81,6 @@ const groupOptions = {
         protection: "2.00X"
     }
     };
-
 const client = new Client({
     authStrategy: new LocalAuth(),
 });
