@@ -38,7 +38,7 @@ const groupLinks = {
         { label: "🛩", url: " 🛩💸🔑💥💥💥📲" }
     ],
         "120363245086285357@g.us": [
-        { label: "🎮SITE", url: "https://sshortly1.com/bozaL1\n\n" },
+        { label: "🎮SITE", url: "https://go.aff.elisa.bet/v7fqezt3\n\n" },
         { label: "🛩", url: " 🛩💸🔑💥💥💥📲" }
     ]
 };
