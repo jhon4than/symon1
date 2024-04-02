@@ -9,7 +9,8 @@ const GROUP_IDS = [
     "120363198201376109@g.us",
     "120363167997450688@g.us",
     "120363236495256824@g.us",
-    "120363245086285357@g.us"
+    "120363245086285357@g.us",
+    "120363242331328544@g.us",
 ];
 
 const groupLinks = {
@@ -39,6 +40,10 @@ const groupLinks = {
     ],
         "120363245086285357@g.us": [
         { label: "🎮SITE", url: "https://go.aff.elisa.bet/v7fqezt3\n\n" },
+        { label: "🛩", url: " 🛩💸🔑💥💥💥📲" }
+    ],
+        "120363242331328544@g.us": [
+        { label: "🎮SITE", url: "https://primeflix.bet\n\n" },
         { label: "🛩", url: " 🛩💸🔑💥💥💥📲" }
     ]
 };
@@ -77,6 +82,10 @@ const groupOptions = {
         protection: "2.00X"
     },
     "120363245086285357@g.us": {
+        multiplier: "*10x 40x*✈",
+        protection: "2.00X"
+    },
+    "120363242331328544@g.us": {
         multiplier: "*10x 40x*✈",
         protection: "2.00X"
     }
