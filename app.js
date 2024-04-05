@@ -90,9 +90,14 @@ const groupOptions = {
         protection: "2.00X"
     }
     };
-const client = new Client({
-    authStrategy: new LocalAuth(),
-});
+    
+    const client = new Client({
+        authStrategy: new LocalAuth({ dataPath: "sessions" }),
+        webVersionCache: {
+            type: 'remote',
+            remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html',
+        }
+    });
 
 function startSendingSignals() {
     GROUP_IDS.forEach(chatId => {
