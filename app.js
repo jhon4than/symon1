@@ -43,7 +43,7 @@ const groupLinks = {
         { label: "🛩", url: " 🛩💸🔑💥💥💥📲" }
     ],
         "120363242331328544@g.us": [
-        { label: "🎮SITE", url: "https://primeflix.bet\n\n" },
+        { label: "🎮SITE", url: "https://sshortly1.com/FHvJYE\n\n" },
         { label: "🛩", url: " 🛩💸🔑💥💥💥📲" }
     ]
 };
