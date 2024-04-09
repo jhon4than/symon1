@@ -49,7 +49,7 @@ const groupLinks = {
 };
 
 const SIGNAL_INTERVAL_MINUTES_ONE = 2;
-const SIGNAL_INTERVAL_MINUTES = 20;
+const SIGNAL_INTERVAL_MINUTES = 15;
 
 const games = [{ name: "✈ AVIATOR ✈", image: "./aviator.jpg" }];
 
